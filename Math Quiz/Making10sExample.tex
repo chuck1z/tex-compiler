@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usepackage{enumitem}
+
+\definecolor{bgdark}{HTML}{121212}
+\definecolor{textlight}{HTML}{E0E0E0}
+\definecolor{subtext}{HTML}{A0A0A0}
+
+\pagecolor{bgdark}
+\color{textlight}
+\pagestyle{empty}
+
+% #1 = number, #2 = node name used later for the connector lines
+\newcommand{\stepnum}[2]{%
+  \tikzmarknode{#2}{%
+    \begin{tikzpicture}[baseline=(char.base)]
+      \node[draw=textlight, circle, inner sep=1.5pt, font=\sffamily\small] (char) {#1};
+    \end{tikzpicture}%
+  }%
+}
+
+\begin{document}
+\sffamily
+
+\begin{description}[leftmargin=2em]
+
+  \item[\stepnum{1}{s1}] \textbf{Decompose each number into tens and ones}\\[0.3em]
+  {\color{subtext}\textit{Separating values makes mental math simple}}
+  \begin{itemize}
+    \item $11  = 10  + 1$
+    \item $51  = 50  + 1$
+    \item $101 = 100 + 1$
+  \end{itemize}
+  \vspace{1em}
+
+  \item[\stepnum{2}{s2}] \textbf{Group and add all the tens together}\\[0.8em]
+  Combine the multiples of 10:
+  \[
+    10 + 50 + 100 = 160
+  \]
+  \vspace{1em}
+
+  \item[\stepnum{3}{s3}] \textbf{Group and add all the remaining ones}\\[0.8em]
+  Combine the ones:
+  \[
+    \mathbf{1} + \mathbf{1} + \mathbf{1} = \mathbf{3}
+  \]
+  \vspace{1em}
+
+  \item[\stepnum{4}{s4}] \textbf{Add the totals together}\\[0.8em]
+  Combine the sum of the tens with the sum of the ones:
+  \[
+    160 + \mathbf{3} = \mathbf{163}
+  \]
+
+\end{description}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[dotted, thick, textlight!60] (s1.south) -- (s2.north);
+  \draw[dotted, thick, textlight!60] (s2.south) -- (s3.north);
+  \draw[dotted, thick, textlight!60] (s3.south) -- (s4.north);
+\end{tikzpicture}
+
+\end{document}

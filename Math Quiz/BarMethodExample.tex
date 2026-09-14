@@ -1,0 +1,93 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, decorations.pathreplacing, shapes.callouts}
+
+\begin{document}
+\begin{tikzpicture}[
+    >=Stealth,
+    every node/.style={font=\sffamily}
+]
+
+% ---- Colors ----
+\colorlet{redcube}{red!70!black}
+\colorlet{bluecube}{blue!55!black}
+\colorlet{arrowblue}{cyan!70!blue}
+
+% ---- Title with numbered circle ----
+\node[circle, fill=black, text=white, minimum size=0.6cm, inner sep=0pt] (num) at (-0.5,7.8) {\textbf{1}};
+\node[right=0.2cm of num, anchor=west] {Use 
+\begin{tikzpicture}[baseline=-0.8ex]
+    \draw[fill=redcube, draw=white, line width=0.8pt] (0,0) rectangle (0.3,0.3);
+    \fill[red!40!black] (0.15,0.15) circle (0.07);
+    \draw[fill=bluecube, draw=white, line width=0.8pt] (0.35,0) rectangle (0.65,0.3);
+    \fill[blue!30!black] (0.5,0.15) circle (0.07);
+\end{tikzpicture}
+to show the number of pencils.};
+
+% ---- Row of connecting cubes (top) ----
+\def\cubesize{0.6}
+\begin{scope}[shift={(1.5,6.0)}]
+    \foreach \i in {0,...,4} {
+        % Added draw=white, line width=0.8pt for the white stroke
+        \draw[fill=redcube, draw=white, line width=0.8pt] (\i*\cubesize,0) rectangle ++(\cubesize,\cubesize);
+        \fill[red!40!black] (\i*\cubesize + 0.3, 0.3) circle (0.15);
+    }
+    \foreach \i in {5,...,7} {
+        % Added draw=white, line width=0.8pt for the white stroke
+        \draw[fill=bluecube, draw=white, line width=0.8pt] (\i*\cubesize,0) rectangle ++(\cubesize,\cubesize);
+        \fill[blue!30!black] (\i*\cubesize + 0.3, 0.3) circle (0.15);
+    }
+    % Small connector bump on the right edge
+    \draw[fill=bluecube, draw=white, line width=0.8pt] (8*\cubesize, 0.2) rectangle ++(0.1, 0.2);
+\end{scope}
+
+% ---- Arrow down (Top to Middle) ----
+\draw[->, arrowblue, line width=1.2pt] (3.9,5.7) -- (3.9,5.1);
+
+% ---- Grid bar (middle) ----
+\begin{scope}[shift={(1.5,4.0)}]
+    \foreach \i in {0,...,4} {
+        \draw[fill=redcube, draw=black, line width=0.5pt] (\i*\cubesize,0) rectangle ++(\cubesize,\cubesize);
+    }
+    \foreach \i in {5,...,7} {
+        \draw[fill=bluecube, draw=black, line width=0.5pt] (\i*\cubesize,0) rectangle ++(\cubesize,\cubesize);
+    }
+\end{scope}
+
+% ---- Labels & Arrows (above bottom bar) ----
+\node[align=center] (redlabel) at (1.0,3.1) {number of\\ red pencils};
+\draw[->, arrowblue, line width=1pt] (redlabel) -- (2.3,3.1);
+\node at (2.8,3.1) {\large 5};
+
+\node[align=center] (bluelabel) at (6.8,3.1) {number of\\ blue pencils};
+\draw[->, arrowblue, line width=1pt] (bluelabel) -- (5.5,3.1);
+\node at (5.0,3.1) {\large 3};
+
+% ---- Arrow down (Middle to Bottom) ----
+\draw[->, arrowblue, line width=1.2pt] (3.9,3.7) -- (3.9,3.1);
+
+% ---- Curly brackets above bottom bar ----
+\draw[decorate, decoration={brace, amplitude=6pt}, line width=0.6pt] (1.5,2.6) -- (4.5,2.6);
+\draw[decorate, decoration={brace, amplitude=6pt}, line width=0.6pt] (4.5,2.6) -- (6.3,2.6);
+
+% ---- Solid Bar (bottom) ----
+\draw[fill=redcube, draw=black, line width=0.5pt] (1.5,1.8) rectangle (4.5,2.4);
+\draw[fill=bluecube, draw=black, line width=0.5pt] (4.5,1.8) rectangle (6.3,2.4);
+
+% ---- Curly bracket below bottom bar (Total) ----
+\draw[decorate, decoration={brace, amplitude=6pt, mirror}, line width=0.6pt] (1.5,1.6) -- (6.3,1.6);
+\node at (3.5,1.0) {\large ?};
+
+\node[align=left, anchor=west] (totallabel) at (5.0,1.0) {total number\\ of pencils};
+\draw[->, arrowblue, line width=1pt] (totallabel) -- (4.2,1.0);
+
+% ---- Equations and text ----
+\node[anchor=west] at (0.2,0.2) {\Large 5 + 3 = 8 \quad \textsf{or} \quad 3 + 5 = 8};
+\node[anchor=west] at (0.2,-0.6) {\Large There are 8 pencils altogether.};
+
+% % ---- Speech Bubble (Bottom Right) ----
+% \node[ellipse callout, callout pointer arc=30, fill=gray!20, draw=none, align=center, inner sep=4pt, text width=2.4cm] 
+%     at (7.5,-0.3) {Draw bars to\\ each numb...};
+
+\end{tikzpicture}
+\end{document}

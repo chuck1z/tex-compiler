@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\definecolor{bglight}{HTML}{FFFFFF}
+\definecolor{textlight}{HTML}{000000}
+\definecolor{subtext}{HTML}{666666}
+
+\pagecolor{bglight}
+\color{textlight}
+
+\pagestyle{empty}
+
+% #1 = number, #2 = node name used later for the connector lines
+\newcommand{\stepnum}[2]{%
+  \tikzmarknode{#2}{%
+    \begin{tikzpicture}[baseline=(char.base)]
+      \node[draw=textlight, circle, inner sep=1.5pt, font=\sffamily\small] (char) {#1};
+    \end{tikzpicture}%
+  }%
+}
+
+\begin{document}
+\sffamily
+
+% ================= HEADER =================
+\begin{center}
+  {\Huge \bfseries Making 10s Exercise Sheet} \\[0.4em]
+\end{center}
+\vspace{1em}
+
+\section*{Part 1: Addition}
+% ================= EXAMPLE SECTION =================
+{\Large \textbf{Example: $11 + 51 + 101$}}
+\vspace{0.5em}
+
+\begin{description}[leftmargin=2em]
+
+  \item[\stepnum{1}{s1}] \textbf{Decompose each number into tens and ones}\\[0.2em]
+  Separating values makes mental math simple
+  \begin{itemize}
+    \item $11  = 10  + 1$
+    \item $51  = 50  + 1$
+    \item $101 = 100 + 1$
+  \end{itemize}
+  \vspace{0.6em}
+
+  \item[\stepnum{2}{s2}] \textbf{Group and add all the tens together}\\[0.4em]
+  Combine the multiples of 10:
+  \[
+    10 + 50 + 100 = 160
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{3}{s3}] \textbf{Group and add all the remaining ones}\\[0.4em]
+  Combine the ones:
+  \[
+    \mathbf{1} + \mathbf{1} + \mathbf{1} = \mathbf{3}
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{4}{s4}] \textbf{Add the totals together}\\[0.4em]
+  Combine the sum of the tens with the sum of the ones:
+  \[
+    160 + \mathbf{3} = \mathbf{163}
+  \]
+
+\end{description}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[dotted, thick, textlight!60] (s1.south) -- (s2.north);
+  \draw[dotted, thick, textlight!60] (s2.south) -- (s3.north);
+  \draw[dotted, thick, textlight!60] (s3.south) -- (s4.north);
+\end{tikzpicture}
+
+\vspace{1em}
+\noindent\textcolor{subtext!40}{\rule{\linewidth}{0.5pt}}
+\vspace{1.5em}
+
+% ================= QUESTIONS SECTION =================
+\begingroup
+\parindent=0pt
+{\Large \textbf{Practice Questions}}\par\vspace{0.4em}
+\endgroup
+\vspace{1em}
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=1.8em, leftmargin=2em]
+  \item $11 + 31 + 61 = {\color{subtext}10 + 30 + 60 + 3 = 103}$
+  \item $21 + 41 + 51 = \underline{\hspace{2.5cm}}$
+  \item $11 + 21 + 31 + 51 = \underline{\hspace{2.5cm}}$
+  \item $31 + 51 + 71 = \underline{\hspace{2.5cm}}$
+  \item $11 + 41 + 81 = \underline{\hspace{2.5cm}}$
+  \item $21 + 31 + 41 + 51 = \underline{\hspace{2.5cm}}$
+  \item $11 + 61 + 91 = \underline{\hspace{2.5cm}}$
+  \item $41 + 51 + 61 = \underline{\hspace{2.5cm}}$
+  \item $11 + 11 + 31 + 41 = \underline{\hspace{2.5cm}}$
+  \item $21 + 51 + 81 = \underline{\hspace{2.5cm}}$
+\end{enumerate}
+\end{multicols}
+
+\section*{Part 2: Subtraction}
+% ================= EXAMPLE SECTION =================
+{\Large \textbf{Example: $110 - 21 - 31$}}
+\vspace{0.5em}
+
+\begin{description}[leftmargin=2em]
+
+  \item[\stepnum{1}{s1}] \textbf{Decompose the numbers to be subtracted}\\[0.2em]
+  Break the numbers into tens and ones
+  \begin{itemize}
+    \item $21  = 20  + 1$
+    \item $31  = 30  + 1$
+  \end{itemize}
+  \vspace{0.6em}
+
+  \item[\stepnum{2}{s2}] \textbf{Subtract the tens}\\[0.4em]
+  Subtract the multiples of 10 from the starting number ($110$):
+  \[
+    110 - 20 - 30 = 60
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{3}{s3}] \textbf{Subtract the remaining ones from the result}\\[0.4em]
+  Take the remaining ones ($1$ and $1$) away from $60$:
+  \[
+    60 - \mathbf{1} - \mathbf{1} = \mathbf{58}
+  \]
+
+\end{description}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[dotted, thick, textlight!60] (s1.south) -- (s2.north);
+  \draw[dotted, thick, textlight!60] (s2.south) -- (s3.north);
+\end{tikzpicture}
+
+\vspace{1em}
+\noindent\textcolor{subtext!40}{\rule{\linewidth}{0.5pt}}
+\vspace{1.5em}
+
+% ================= QUESTIONS SECTION =================
+\begingroup
+\parindent=0pt
+
+{\Large \textbf{Practice Questions}}\par\vspace{0.4em}
+\endgroup
+\vspace{1em}
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=1.8em, leftmargin=2em]
+  \item $\begin{aligned}[t] 120 - 21 - 31 &= {\color{subtext}120 - 20 - 30 - 1 - 1} \\ &= {\color{subtext}70 - 1 - 1 = 68} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+  \item $\begin{aligned}[t] 100 - 11 - 21 &= \underline{\hspace{2.5cm}} \\ &= \underline{\hspace{2.5cm}} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+  \item $\begin{aligned}[t] 150 - 41 - 51 &= \underline{\hspace{2.5cm}} \\ &= \underline{\hspace{2.5cm}} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+  \item $\begin{aligned}[t] 180 - 31 - 41 &= \underline{\hspace{2.5cm}} \\ &= \underline{\hspace{2.5cm}} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+  \item $\begin{aligned}[t] 110 - 11 - 51 &= \underline{\hspace{2.5cm}} \\ &= \underline{\hspace{2.5cm}} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+  \item $\begin{aligned}[t] 130 - 31 - 21 - 11 &= \underline{\hspace{2.5cm}} \\ &= \underline{\hspace{2.5cm}} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+  \item $\begin{aligned}[t] 160 - 51 - 61 &= \underline{\hspace{2.5cm}} \\ &= \underline{\hspace{2.5cm}} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+  \item $\begin{aligned}[t] 140 - 21 - 41 &= \underline{\hspace{2.5cm}} \\ &= \underline{\hspace{2.5cm}} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+  \item $\begin{aligned}[t] 200 - 31 - 51 - 61 &= \underline{\hspace{2.5cm}} \\ &= \underline{\hspace{2.5cm}} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+  \item $\begin{aligned}[t] 170 - 41 - 31 - 21 &= \underline{\hspace{2.5cm}} \\ &= \underline{\hspace{2.5cm}} \\ &\vphantom{70 - 1 - 1 = 68}\end{aligned}$
+\end{enumerate}
+\end{multicols}
+\end{document}
