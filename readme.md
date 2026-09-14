@@ -9,6 +9,6 @@ docker run --rm -v "$PWD:/work" -w /work texlive/texlive:latest \
   latexmk -lualatex main.tex
 ```
 
-`sudo apt install -y poppler-utils`
-`python -m venv .venv`
+`sudo apt install -y poppler-utils` <br>
+`python -m venv .venv` <br>
 `pip install pdf2image`
