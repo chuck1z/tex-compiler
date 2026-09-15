@@ -1,0 +1,156 @@
+% Question 2
+  \item \textbf{John the baker made 240 cupcakes.}
+  \begin{enumerate}[label=(\alph*)]
+    \item \textbf{150 cupcakes were sold in the morning. How many cupcakes were left?}
+    \item \textbf{If 80 cupcakes were sold in the afternoon, how many cupcakes does he have now?}
+  \end{enumerate}
+
+  \vspace{1em}
+
+  % Single combined bar model for total cupcakes (240) split into Morning, Afternoon, and Left
+  \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
+    % Top Bracket for Overall Total
+    \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (6.0, 1.2);
+    \node[anchor=south] at (3.0, 1.3) {\small Total Baked: 240};
+
+    % Colored Bars representing three parts of the whole
+    \draw[fill=redbar, draw=black, line width=0.5pt] (0, 0.6) rectangle (3.75, 1.1);
+    \draw[fill=redbar!60!black, draw=black, line width=0.5pt] (3.75, 0.6) rectangle (5.75, 1.1);
+    \draw[fill=bluebar, draw=black, line width=0.5pt] (5.75, 0.6) rectangle (6.0, 1.1);
+
+    % Bottom Brackets for each component
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (0, 0.5) -- (3.75, 0.5);
+    \node[anchor=north] at (1.875, 0.4) {\small Morning: 150};
+
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (3.75, 0.5) -- (5.75, 0.5);
+    \node[anchor=north] at (4.75, 0.4) {\small Afternoon: 80};
+
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (5.75, 0.5) -- (6.0, 0.5);
+    \node[anchor=north] at (5.875, 0.4) {\small ?};
+  \end{tikzpicture}
+
+  \vspace{0.6em}
+
+  \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
+    % Total Bracket on Top
+    \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (6.0, 1.2);
+    \node[anchor=south] at (3.0, 1.3) {\small Total Baked: 240};
+
+    % Colored Bars
+    \draw[fill=redbar, draw=black, line width=0.5pt] (0, 0.6) rectangle (3.75, 1.1);
+    \draw[fill=bluebar, draw=black, line width=0.5pt] (3.75, 0.6) rectangle (6.0, 1.1);
+
+    % Bottom Brackets
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (0, 0.5) -- (3.75, 0.5);
+    \node[anchor=north] at (1.875, 0.4) {\small Sold (Morning): 150};
+
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (3.75, 0.5) -- (6.0, 0.5);
+    \node[anchor=north] at (4.875, 0.4) {\small Left (Morning): ?};
+  \end{tikzpicture}
+
+  \vspace{0.6em}
+  (a) Equation: $\underline{\hspace{1.5cm}} - \underline{\hspace{1.5cm}} = \underline{\hspace{1.5cm}}$
+  \hspace{1cm} Cupcakes left = $\underline{\hspace{1.5cm}}$
+
+  \vspace{1em}
+
+  \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
+    % Top Bracket showing remaining cupcakes from morning (90)
+    \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (6.0, 1.2);
+    \node[anchor=south] at (3.0, 1.3) {\small Left from Morning: 90};
+
+    % Colored Bars dividing the remaining into sold afternoon vs final left
+    \draw[fill=redbar!80!black, draw=black, line width=0.5pt] (0, 0.6) rectangle (5.33, 1.1);
+    \draw[fill=bluebar, draw=black, line width=0.5pt] (5.33, 0.6) rectangle (6.0, 1.1);
+
+    % Bottom Brackets
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (0, 0.5) -- (5.33, 0.5);
+    \node[anchor=north] at (2.66, 0.4) {\small Sold (Afternoon): 80};
+
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (5.33, 0.5) -- (6.0, 0.5);
+    \node[anchor=north] at (5.66, 0.4) {\small Left now: ?};
+  \end{tikzpicture}
+
+  \vspace{0.6em}
+  (b) Equation: $\underline{\hspace{1.5cm}} - \underline{\hspace{1.5cm}} = \underline{\hspace{1.5cm}}$
+  \hspace{1cm} Cupcakes left = $\underline{\hspace{1.5cm}}$
+
+  % Question 3
+  \item \textbf{Maya read $\frac{3}{8}$ of a book on Saturday and $\frac{2}{8}$ of it on Sunday. What fraction of the book does she have left to read?}
+
+  \vspace{0.5em}
+  \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
+    % Bar divided into 8 equal parts
+    \draw[fill=redbar, draw=black, line width=0.5pt] (0, 0.6) rectangle (2.25, 1.1);
+    \draw[fill=bluebar, draw=black, line width=0.5pt] (2.25, 0.6) rectangle (3.75, 1.1);
+    \draw[fill=white, draw=black, line width=0.5pt] (3.75, 0.6) rectangle (6.0, 1.1);
+
+    % Grid lines inside
+    \foreach \x in {0.75, 1.5, 3.0, 4.5, 5.25} {
+      \draw[line width=0.5pt] (\x, 0.6) -- (\x, 1.1);
+    }
+
+    % Top brackets
+    \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (2.25, 1.2);
+    \node[anchor=south] at (1.125, 1.3) {\small Sat: $\frac{3}{8}$};
+
+    \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (2.25, 1.2) -- (3.75, 1.2);
+    \node[anchor=south] at (3.0, 1.3) {\small Sun: $\frac{2}{8}$};
+
+    % Bottom bracket
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (3.75, 0.5) -- (6.0, 0.5);
+    \node[anchor=north] at (4.875, 0.4) {\small Left: ?};
+  \end{tikzpicture}
+
+  \vspace{0.6em}
+  Fraction read = $\underline{\hspace{1.2cm}} + \underline{\hspace{1.2cm}} = \underline{\hspace{1.2cm}}$
+  \hspace{1.5cm} Fraction left = $1 - \underline{\hspace{1.2cm}} = \underline{\hspace{1.2cm}}$
+
+  % Question 4
+  \item \textbf{A toy store has 520 red, blue, and green balls. 185 are red and 210 are blue. How many green balls are there?}
+
+  \vspace{0.5em}
+  \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
+    % Top Bracket Total
+    \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (6.5, 1.2);
+    \node[anchor=south] at (3.25, 1.3) {\small Total: 520};
+
+    % Bars
+    \draw[fill=redbar, draw=black, line width=0.5pt] (0, 0.6) rectangle (2.3, 1.1);
+    \draw[fill=bluebar, draw=black, line width=0.5pt] (2.3, 0.6) rectangle (4.9, 1.1);
+    \draw[fill=gray!30, draw=black, line width=0.5pt] (4.9, 0.6) rectangle (6.5, 1.1);
+
+    % Labels inside or below
+    \node at (1.15, 0.85) {\small\color{white}Red: 185};
+    \node at (3.6, 0.85) {\small\color{white}Blue: 210};
+    \node at (5.7, 0.85) {\small Green: ?};
+  \end{tikzpicture}
+
+  \vspace{0.6em}
+  Green balls: $520 - 185 - 210 = \underline{\hspace{1.5cm}}$
+  % \hspace{2cm} Green balls = $\underline{\hspace{1.5cm}}$
+
+  % Question 5
+  \item \textbf{A ribbon is 4.5 meters long. Hannah cuts off a piece measuring 1.85 meters. How long is the remaining ribbon?}
+
+  \vspace{0.5em}
+  \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
+    % Top Bracket Total
+    \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (6.0, 1.2);
+    \node[anchor=south] at (3.0, 1.3) {\small Total Length: 4.5 m};
+
+    % Bars
+    \draw[fill=redbar, draw=black, line width=0.5pt] (0, 0.6) rectangle (2.47, 1.1);
+    \draw[fill=bluebar, draw=black, line width=0.5pt] (2.47, 0.6) rectangle (6.0, 1.1);
+
+    % Bottom Brackets
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (0, 0.5) -- (2.47, 0.5);
+    \node[anchor=north] at (1.235, 0.4) {\small Cut: 1.85 m};
+
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (2.47, 0.5) -- (6.0, 0.5);
+    \node[anchor=north] at (4.235, 0.4) {\small Remaining: ?};
+  \end{tikzpicture}
+
+  \vspace{0.6em}
+  Equation: $\underline{\hspace{1.5cm}} - \underline{\hspace{1.5cm}} = \underline{\hspace{1.5cm}}$ m
+  \hspace{1.5cm} Remaining ribbon = $\underline{\hspace{1.5cm}}$ m
