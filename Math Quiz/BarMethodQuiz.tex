@@ -151,30 +151,6 @@ Read each problem, fill in the missing numbers in the bar model, and solve.
 
   \vspace{1em}
 
-  % Single combined bar model for total cupcakes (240) split into Morning, Afternoon, and Left
-  \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
-    % Top Bracket for Overall Total
-    \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (6.0, 1.2);
-    \node[anchor=south] at (3.0, 1.3) {\small Total Baked: 240};
-
-    % Colored Bars representing three parts of the whole
-    \draw[fill=redbar, draw=black, line width=0.5pt] (0, 0.6) rectangle (3.75, 1.1);
-    \draw[fill=redbar!60!black, draw=black, line width=0.5pt] (3.75, 0.6) rectangle (5.75, 1.1);
-    \draw[fill=bluebar, draw=black, line width=0.5pt] (5.75, 0.6) rectangle (6.0, 1.1);
-
-    % Bottom Brackets for each component
-    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (0, 0.5) -- (3.75, 0.5);
-    \node[anchor=north] at (1.875, 0.4) {\small Morning: 150};
-
-    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (3.75, 0.5) -- (5.75, 0.5);
-    \node[anchor=north] at (4.75, 0.4) {\small Afternoon: 80};
-
-    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (5.75, 0.5) -- (6.0, 0.5);
-    \node[anchor=north] at (5.875, 0.4) {\small ?};
-  \end{tikzpicture}
-
-  \vspace{0.6em}
-
   \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
     % Total Bracket on Top
     \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (6.0, 1.2);
@@ -198,10 +174,34 @@ Read each problem, fill in the missing numbers in the bar model, and solve.
 
   \vspace{1em}
 
+    % Single combined bar model for total cupcakes (240) split into Morning, Afternoon, and Left
+  \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
+    % Top Bracket for Overall Total
+    \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (6.0, 1.2);
+    \node[anchor=south] at (3.0, 1.3) {\small Total Baked: 240};
+
+    % Colored Bars representing three parts of the whole
+    \draw[fill=redbar, draw=black, line width=0.5pt] (0, 0.6) rectangle (3.75, 1.1);
+    \draw[fill=redbar!60!black, draw=black, line width=0.5pt] (3.75, 0.6) rectangle (5.75, 1.1);
+    \draw[fill=bluebar, draw=black, line width=0.5pt] (5.75, 0.6) rectangle (6.0, 1.1);
+
+    % Bottom Brackets for each component
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (0, 0.5) -- (3.75, 0.5);
+    \node[anchor=north] at (1.875, 0.4) {\small Morning: 150};
+
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (3.75, 0.5) -- (5.75, 0.5);
+    \node[anchor=north] at (4.75, 0.4) {\small Afternoon: 80};
+
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (5.75, 0.5) -- (6.0, 0.5);
+    \node[anchor=north] at (5.875, 0.4) {\small ?};
+  \end{tikzpicture}
+
+  \vspace{0.6em}
+  
   \begin{tikzpicture}[>=Stealth, baseline={(0,0.5)}]
     % Top Bracket showing remaining cupcakes from morning (90)
     \draw[decorate, decoration={brace, amplitude=4pt}, line width=0.5pt] (0, 1.2) -- (6.0, 1.2);
-    \node[anchor=south] at (3.0, 1.3) {\small Left from Morning: 90};
+    \node[anchor=south] at (3.0, 1.3) {\small Left from Morning: \underline{\hspace{0.5cm}}};
 
     % Colored Bars dividing the remaining into sold afternoon vs final left
     \draw[fill=redbar!80!black, draw=black, line width=0.5pt] (0, 0.6) rectangle (5.33, 1.1);
