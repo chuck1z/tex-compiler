@@ -1,0 +1,220 @@
+\documentclass{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\definecolor{bglight}{HTML}{FFFFFF}
+\definecolor{textlight}{HTML}{000000}
+\definecolor{subtext}{HTML}{666666}
+
+\pagecolor{bglight}
+\color{textlight}
+
+\pagestyle{empty}
+
+% #1 = number, #2 = node name used later for the connector lines
+\newcommand{\stepnum}[2]{%
+  \tikzmarknode{#2}{%
+    \begin{tikzpicture}[baseline=(char.base)]
+      \node[draw=textlight, circle, inner sep=1.5pt, font=\sffamily\small] (char) {#1};
+    \end{tikzpicture}%
+  }%
+}
+
+\begin{document}
+\sffamily
+
+% ================= HEADER =================
+\begin{center}
+  {\Huge \bfseries Subtraction Exercise Sheet} \\[0.4em]
+\end{center}
+\vspace{1em}
+
+% ================= PART A =================
+\section*{Part A: 2-Digit Minus 1-Digit Subtraction}
+\vspace{0.5em}
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=1.5em, leftmargin=2em]
+  \item $24 - 7 = \underline{\hspace{2.5cm}}$
+  \item $35 - 8 = \underline{\hspace{2.5cm}}$
+  \item $42 - 6 = \underline{\hspace{2.5cm}}$
+  \item $51 - 9 = \underline{\hspace{2.5cm}}$
+  \item $63 - 5 = \underline{\hspace{2.5cm}}$
+  \item $70 - 4 = \underline{\hspace{2.5cm}}$
+  \item $82 - 7 = \underline{\hspace{2.5cm}}$
+  \item $93 - 8 = \underline{\hspace{2.5cm}}$
+  \item $46 - 9 = \underline{\hspace{2.5cm}}$
+  \item $61 - 3 = \underline{\hspace{2.5cm}}$
+\end{enumerate}
+\end{multicols}
+
+\vspace{1em}
+\noindent\textcolor{subtext!40}{\rule{\linewidth}{0.5pt}}
+\vspace{1em}
+
+% ================= PART B =================
+\section*{Part B: 3-Digit Subtraction (Guided Answers)}
+\vspace{0.2em}
+\noindent\textit{Fill in the missing digit indicated by the underlined space.}
+\vspace{0.8em}
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=1.5em, leftmargin=2em]
+  \item $253 - 8 = 2\,\underline{\hspace{0.8cm}}\,5$
+  \item $394 - 9 = 38\,\underline{\hspace{0.8cm}}$
+  \item $412 - 25 = 3\,\underline{\hspace{0.8cm}}\,7$
+  \item $531 - 46 = \underline{\hspace{0.8cm}}\,85$
+  \item $620 - 58 = 56\,\underline{\hspace{0.8cm}}$
+  \item $743 - 185 = 5\,\underline{\hspace{0.8cm}}\,8$
+  \item $815 - 267 = \underline{\hspace{0.8cm}}\,48$
+  \item $604 - 328 = 27\,\underline{\hspace{0.8cm}}$
+  \item $921 - 453 = 4\,\underline{\hspace{0.8cm}}\,8$
+  \item $578 - 289 = \underline{\hspace{0.8cm}}\,89$
+\end{enumerate}
+\end{multicols}
+
+\vspace{1em}
+\noindent\textcolor{subtext!40}{\rule{\linewidth}{0.5pt}}
+\vspace{1em}
+
+\clearpage
+% ================= PART C & D =================
+\section*{Part C \& D: 3-Digit Subtraction — Column Method vs. Making 10s}
+\vspace{0.5em}
+
+% Example Section
+{\Large \textbf{Example: $642 - 285$}}
+\vspace{0.5em}
+
+\begin{description}[leftmargin=2em]
+
+  \item[\stepnum{1}{sd1}] \textbf{Make a friendly number for the subtracted term}\\[0.2em]
+  Add $+15$ to $285$ to turn it into a clean hundred ($300$).
+  \[
+    285 + 15 = 300
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{2}{sd2}] \textbf{Add the same amount ($+15$) to the starting number}\\[0.4em]
+  Keep the difference the same by adding $+15$ to $642$:
+  \[
+    642 + 15 = 657
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{3}{sd3}] \textbf{Subtract the friendly number}\\[0.4em]
+  Now perform the simplified subtraction:
+  \[
+    657 - \mathbf{300} = \mathbf{357}
+  \]
+
+\end{description}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[dotted, thick, textlight!60] (sd1.south) -- (sd2.north);
+  \draw[dotted, thick, textlight!60] (sd2.south) -- (sd3.north);
+\end{tikzpicture}
+
+\vspace{1em}
+\noindent\textcolor{subtext!40}{\rule{\linewidth}{0.5pt}}
+\vspace{1.5em}
+
+% Questions Section
+\begingroup
+\parindent=0pt
+{\Large \textbf{Practice Questions}}\par\vspace{0.4em}
+\endgroup
+\vspace{1em}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=2em, leftmargin=2em]
+
+  % Question 1
+  \item 
+  \begin{minipage}[t]{0.28\linewidth}
+    $\begin{array}[t]{r@{\quad}l}
+        642 \\
+      - 285 \\
+      \hline
+    \end{array}$
+  \end{minipage}%
+  \begin{minipage}[t]{0.68\linewidth}
+    $\begin{aligned}[t]
+      642 - 285 &= (642 + 15) - (285 + 15) \\
+                &= {\color{subtext}657 - 300 = 357}
+    \end{aligned}$
+  \end{minipage}
+
+  % Question 2
+  \item 
+  \begin{minipage}[t]{0.28\linewidth}
+    $\begin{array}[t]{r@{\quad}l}
+        715 \\
+      - 348 \\
+      \hline
+    \end{array}$
+  \end{minipage}%
+  \begin{minipage}[t]{0.68\linewidth}
+    $\begin{aligned}[t]
+      715 - 348 &= (715 + 52) - (348 + 52) \\
+                &= \underline{\hspace{2cm}} - 400 = \underline{\hspace{1.5cm}}
+    \end{aligned}$
+  \end{minipage}
+
+  % Question 3
+  \item 
+  \begin{minipage}[t]{0.28\linewidth}
+    $\begin{array}[t]{r@{\quad}l}
+        503 \\
+      - 276 \\
+      \hline
+    \end{array}$
+  \end{minipage}%
+  \begin{minipage}[t]{0.68\linewidth}
+    $\begin{aligned}[t]
+      503 - 276 &= (503 + 24) - (276 + 24) \\
+                &= \underline{\hspace{2cm}} - 300 = \underline{\hspace{1.5cm}}
+    \end{aligned}$
+  \end{minipage}
+
+  % Question 4
+  \item 
+  \begin{minipage}[t]{0.28\linewidth}
+    $\begin{array}[t]{r@{\quad}l}
+        831 \\
+      - 459 \\
+      \hline
+    \end{array}$
+  \end{minipage}%
+  \begin{minipage}[t]{0.68\linewidth}
+    $\begin{aligned}[t]
+      831 - 459 &= (831 + 41) - (459 + 41) \\
+                &= \underline{\hspace{2cm}} - 500 = \underline{\hspace{1.5cm}}
+    \end{aligned}$
+  \end{minipage}
+
+  % Question 5
+  \item 
+  \begin{minipage}[t]{0.28\linewidth}
+    $\begin{array}[t]{r@{\quad}l}
+        924 \\
+      - 368 \\
+      \hline
+    \end{array}$
+  \end{minipage}%
+  \begin{minipage}[t]{0.68\linewidth}
+    $\begin{aligned}[t]
+      924 - 368 &= (924 + 32) - (368 + 32) \\
+                &= \underline{\hspace{2cm}} - 400 = \underline{\hspace{1.5cm}}
+    \end{aligned}$
+  \end{minipage}
+
+\end{enumerate}
+% 
+\end{document}

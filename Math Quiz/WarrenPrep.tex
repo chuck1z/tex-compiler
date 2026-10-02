@@ -1,0 +1,189 @@
+\documentclass{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\definecolor{bglight}{HTML}{FFFFFF}
+\definecolor{textlight}{HTML}{000000}
+\definecolor{subtext}{HTML}{666666}
+
+\pagecolor{bglight}
+\color{textlight}
+
+\pagestyle{empty}
+
+% #1 = number, #2 = node name used later for the connector lines
+\newcommand{\stepnum}[2]{%
+  \tikzmarknode{#2}{%
+    \begin{tikzpicture}[baseline=(char.base)]
+      \node[draw=textlight, circle, inner sep=1.5pt, font=\sffamily\small] (char) {#1};
+    \end{tikzpicture}%
+  }%
+}
+
+\begin{document}
+\sffamily
+
+% ================= HEADER =================
+\begin{center}
+  {\Huge \bfseries 4-Digit Subtraction Exercise Sheet} \\[0.4em]
+  {\Large \textcolor{subtext}{Singapore Math Mental Strategies}}
+\end{center}
+\vspace{1em}
+
+\section*{Part 1: Decomposing by Place Value (Split Strategy)}
+% ================= EXAMPLE SECTION =================
+{\Large \textbf{Example: $6,785 - 2,341$}}
+\vspace{0.5em}
+
+\begin{description}[leftmargin=2em]
+
+  \item[\stepnum{1}{p1s1}] \textbf{Decompose the subtrahend into place values}\\[0.2em]
+  Break the second number into thousands, hundreds, tens, and ones:
+  \begin{itemize}
+    \item $2,341 = 2,000 + 300 + 40 + 1$
+  \end{itemize}
+  \vspace{0.6em}
+
+  \item[\stepnum{2}{p1s2}] \textbf{Subtract the thousands}\\[0.4em]
+  Subtract $2,000$ from the starting total ($6,785$):
+  \[
+    6,785 - 2,000 = 4,785
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{3}{p1s3}] \textbf{Subtract the hundreds}\\[0.4em]
+  Subtract $300$ from the running total ($4,785$):
+  \[
+    4,785 - 300 = 4,485
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{4}{p1s4}] \textbf{Subtract the tens}\\[0.4em]
+  Subtract $40$ from the running total ($4,485$):
+  \[
+    4,485 - 40 = 4,445
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{5}{p1s5}] \textbf{Subtract the remaining ones}\\[0.4em]
+  Take away $1$ from $4,445$ to get the final answer:
+  \[
+    4,445 - \mathbf{1} = \mathbf{4,444}
+  \]
+
+\end{description}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[dotted, thick, textlight!60] (p1s1.south) -- (p1s2.north);
+  \draw[dotted, thick, textlight!60] (p1s2.south) -- (p1s3.north);
+  \draw[dotted, thick, textlight!60] (p1s3.south) -- (p1s4.north);
+  \draw[dotted, thick, textlight!60] (p1s4.south) -- (p1s5.north);
+\end{tikzpicture}
+
+\vspace{1em}
+\noindent\textcolor{subtext!40}{\rule{\linewidth}{0.5pt}}
+\vspace{1.5em}
+
+% ================= QUESTIONS SECTION =================
+\begingroup
+\parindent=0pt
+{\Large \textbf{Practice Questions}}\par\vspace{0.4em}
+\endgroup
+\vspace{1em}
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=1.5em, leftmargin=2em]
+  \item $5,468 - 1,234 = {\color{subtext}5,468 - 1,000 - 200 - 30 - 4 = 4,234}$
+  \item $7,895 - 3,421 = \underline{\hspace{3cm}}$
+  \item $6,543 - 2,132 = \underline{\hspace{3cm}}$
+  \item $8,976 - 4,515 = \underline{\hspace{3cm}}$
+  \item $4,859 - 1,627 = \underline{\hspace{3cm}}$
+  \item $9,684 - 5,241 = \underline{\hspace{3cm}}$
+  \item $3,762 - 1,421 = \underline{\hspace{3cm}}$
+  \item $7,594 - 2,361 = \underline{\hspace{3cm}}$
+  \item $8,437 - 3,215 = \underline{\hspace{3cm}}$
+  \item $6,985 - 4,152 = \underline{\hspace{3cm}}$
+  \item $9,876 - 3,542 = \underline{\hspace{3cm}}$
+  \item $5,964 - 2,313 = \underline{\hspace{3cm}}$
+  \item $8,751 - 4,230 = \underline{\hspace{3cm}}$
+  \item $6,849 - 1,527 = \underline{\hspace{3cm}}$
+  \item $7,938 - 3,614 = \underline{\hspace{3cm}}$
+  \item $4,675 - 2,143 = \underline{\hspace{3cm}}$
+  \item $9,582 - 6,351 = \underline{\hspace{3cm}}$
+  \item $8,694 - 5,172 = \underline{\hspace{3cm}}$
+  \item $7,483 - 2,261 = \underline{\hspace{3cm}}$
+  \item $5,796 - 3,425 = \underline{\hspace{3cm}}$
+\end{enumerate}
+\end{multicols}
+
+\pagebreak
+
+\section*{Part 2: Compensation Strategy (Subtracting Near Thousands)}
+% ================= EXAMPLE SECTION =================
+{\Large \textbf{Example: $5,423 - 1,998$}}
+\vspace{0.5em}
+
+\begin{description}[leftmargin=2em]
+
+  \item[\stepnum{1}{p2s1}] \textbf{Round the subtrahend up to the nearest thousand}\\[0.2em]
+  $1,998$ is close to $2,000$ (it is $2$ less than $2,000$):
+  \[
+    1,998 = 2,000 - \mathbf{2}
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{2}{p2s2}] \textbf{Subtract the rounded thousand}\\[0.4em]
+  Subtract $2,000$ from $5,423$:
+  \[
+    5,423 - 2,000 = 3,423
+  \]
+  \vspace{0.6em}
+
+  \item[\stepnum{3}{p2s3}] \textbf{Add back the difference (Compensation)}\\[0.4em]
+  Since you subtracted $2$ too much, add $2$ back to the result:
+  \[
+    3,423 + \mathbf{2} = \mathbf{3,425}
+  \]
+
+\end{description}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[dotted, thick, textlight!60] (p2s1.south) -- (p2s2.north);
+  \draw[dotted, thick, textlight!60] (p2s2.south) -- (p2s3.north);
+\end{tikzpicture}
+
+\vspace{1em}
+\noindent\textcolor{subtext!40}{\rule{\linewidth}{0.5pt}}
+\vspace{1.5em}
+
+% ================= QUESTIONS SECTION =================
+\begingroup
+\parindent=0pt
+
+{\Large \textbf{Practice Questions}}\par\vspace{0.4em}
+\endgroup
+\vspace{1em}
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=1.8em, leftmargin=2em]
+  \item $\begin{aligned}[t] 6,315 - 1,997 &= {\color{subtext}6,315 - 2,000 + 3} \\ &= {\color{subtext}4,315 + 3 = 4,318} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+  \item $\begin{aligned}[t] 4,582 - 1,999 &= \underline{\hspace{3cm}} \\ &= \underline{\hspace{3cm}} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+  \item $\begin{aligned}[t] 7,246 - 2,998 &= \underline{\hspace{3cm}} \\ &= \underline{\hspace{3cm}} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+  \item $\begin{aligned}[t] 5,831 - 1,995 &= \underline{\hspace{3cm}} \\ &= \underline{\hspace{3cm}} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+  \item $\begin{aligned}[t] 8,419 - 3,996 &= \underline{\hspace{3cm}} \\ &= \underline{\hspace{3cm}} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+  \item $\begin{aligned}[t] 6,154 - 2,997 &= \underline{\hspace{3cm}} \\ &= \underline{\hspace{3cm}} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+  \item $\begin{aligned}[t] 9,238 - 4,998 &= \underline{\hspace{3cm}} \\ &= \underline{\hspace{3cm}} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+  \item $\begin{aligned}[t] 3,672 - 1,994 &= \underline{\hspace{3cm}} \\ &= \underline{\hspace{3cm}} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+  \item $\begin{aligned}[t] 7,513 - 3,999 &= \underline{\hspace{3cm}} \\ &= \underline{\hspace{3cm}} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+  \item $\begin{aligned}[t] 8,625 - 2,995 &= \underline{\hspace{3cm}} \\ &= \underline{\hspace{3cm}} \\ &\vphantom{4,315 + 3 = 4,318}\end{aligned}$
+\end{enumerate}
+\end{multicols}
+
+\end{document}
